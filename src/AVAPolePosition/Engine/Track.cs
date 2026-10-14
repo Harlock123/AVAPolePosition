@@ -26,15 +26,15 @@ public sealed class Track
 
     public static Track Make(int index) => (index % Count) switch
     {
-        0 => Build("KESTREL RING", "THE NORTHERN HILLS", 0xFF3A8A2A, 0xFF5A6A8A, 74, 58,
+        0 => Build("KESTREL RING", "THE NORTHERN HILLS", 0xFF3A8A2A, 0xFF5A6A8A, 59, 46,
         [
             (160, 0), (60, 2), (50, 0), (80, -3), (40, 0), (50, 6), (120, 0), (60, -2), (60, 2), (90, 0), (140, 1.5), (50, 0), (70, -4), (180, 0),
         ]),
-        1 => Build("PORT HALVARD", "THE HARBOUR CIRCUIT", 0xFF4A9A3A, 0xFF7A8AA0, 76, 60,
+        1 => Build("PORT HALVARD", "THE HARBOUR CIRCUIT", 0xFF4A9A3A, 0xFF7A8AA0, 61, 48,
         [
             (140, 0), (50, -5), (60, 0), (50, 5), (80, 0), (100, -2), (40, 0), (60, 4), (60, -4), (100, 0), (80, 3), (40, 0), (60, -6), (200, 0),
         ]),
-        _ => Build("VALLEY OF ASH", "THE DESERT CIRCUIT", 0xFFA89A5A, 0xFF9A6A4A, 78, 62,
+        _ => Build("VALLEY OF ASH", "THE DESERT CIRCUIT", 0xFFA89A5A, 0xFF9A6A4A, 62, 50,
         [
             (200, 0), (80, 3), (30, 0), (80, 3), (60, 0), (50, -6), (90, 0), (120, -1.5), (60, 0), (50, 5), (50, -5), (140, 0), (90, 2.5), (150, 0),
         ]),

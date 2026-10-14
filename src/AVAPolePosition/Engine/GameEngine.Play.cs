@@ -3,7 +3,7 @@ namespace AVAPolePosition.Engine;
 public sealed partial class GameEngine
 {
     // The car: top speeds in each gear, how much speed is distance, how the bends pull.
-    public const double LowTop = 190, HighTop = 320, KmhToUnits = 16;
+    public const double LowTop = 190, HighTop = 320, KmhToUnits = 20;
     public const double SteerRate = 1.5, Pull = 0.37;
     public const int RaceLaps = 4;
     public const double CarLength = 180, CarWidth = 0.38;
@@ -170,9 +170,9 @@ public sealed partial class GameEngine
     private void Qualified()
     {
         QualifyTime = LapTime;
-        // The grid by time: two seconds a place, from well inside the limit.
-        double pole = Track.QualifyLimit - 18;
-        Grid = Math.Clamp(1 + (int)Math.Floor((QualifyTime - pole) / 2), 1, 8);
+        // The grid by time: a place every two seconds or so, from well inside the limit.
+        double pole = Track.QualifyLimit * 0.76, step = Track.QualifyLimit * 0.027;
+        Grid = Math.Clamp(1 + (int)Math.Floor((QualifyTime - pole) / step), 1, 8);
         AddScore(GridBonus[Grid - 1]);
         Music(false);
         Play(Sfx.Qualified);
@@ -203,7 +203,7 @@ public sealed partial class GameEngine
         }
         _ahead.Clear();
         foreach (var car in Cars.Where(car => car.Total > Total)) _ahead.Add(car.Id);
-        TimeLeft = Track.LapExtend + 17;
+        TimeLeft = Track.LapExtend + 14;
         Laps = 0;
         LapTime = 0;
         Say("PREPARE TO RACE", 3);
